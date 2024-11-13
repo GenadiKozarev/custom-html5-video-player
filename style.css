@@ -23,6 +23,11 @@ body {
     justify-content: center;
 }
 
+.reminder {
+    text-align: center;
+    color: #7f7f7f;
+}
+
 .player {
     max-width: 750px;
     border: 5px solid #00000033;
