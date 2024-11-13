@@ -6,15 +6,22 @@ const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
-function togglePlay() {
+const togglePlay = () => {
     video.paused ? video.play() : video.pause();
-}
+};
 
-function updateButton() {
+const updateButton = () => {
     toggle.textContent = video.paused ? '►' : '❚ ❚';
+};
+
+function skip() {
+    video.currentTime += parseFloat(this.dataset.skip);
 }
 
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
 toggle.addEventListener('click', togglePlay);
+skipButtons.forEach(skipButton => {
+    skipButton.addEventListener('click', skip);
+});
